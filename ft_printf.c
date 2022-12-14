@@ -13,27 +13,60 @@
 #include "../cursus00/libft/libft.h"
 #include <stdio.h>
 
+static void	which_one(char c)
+{
+	if (c == 'c');
+	if (c == 's');
+	if (c == 'p');
+	if (c == 'i');
+	if (c == 'u');
+	if (c == 'x');
+	if (c == 'X');
+	if (c == '%');
+}
+
+static size_t	one_or_not(char *format)
+{
+	size_t	i;
+	char	*stack;
+
+	i = 0;
+	stack = "cspdiuxX%";
+	while (format[i])
+	{
+		if (ft_strchr(stack, format[i]))
+		{
+			which_one(format[i]);
+		}
+		i++;
+	}
+	
+}
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
+	va_list	ap;
+	va_list	cp;
 	size_t	i;
+	const char	*val;
 
-	va_start(args, format);
+	va_start(ap, format);
+	va_copy(cp, ap);
 	i = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			jdg(format[i + 1]);
-			i += 2;
+			i += jdg(&format[i + 1]);
 		}
 		else
 		{
 			write (1, &format[i], 1);
 		}
+		i++;
 	}
-	va_end(args);
+	va_end(ap);
+	return ;
 }
 
 int	main()
@@ -42,6 +75,7 @@ int	main()
 	char *s;
 	int d, i, x, X;
 	unsigned int u;
+	int mynumber;
 
 	s = "Keito";
 	c = 'T';
@@ -50,8 +84,13 @@ int	main()
 	u = 2005;
 	x = 24;
 	X = 2005;
-	ft_printf("I am %s.%c, %d years old born in %i, %u.\n", s, c, d, i, u);
-	ft_printf("My birth date translated hexadecimal: November %xth, %X %%\n", x, X);
+	printf("I am %s.%c, %d years old born in %i, %u.\n", s, c, d, i, u);
+	printf("My birth date translated hexadecimal: November %xth, %X %%\n", x, X);
+
+	mynumber = printf("%%%%%%%%");
+	printf("%i", mynumber);
+	mynumber = "I am 11";
+	printf("\n%d", mynumber);
 }
 
 // I am Keito.T, 17 years old born in -17, 2005.
