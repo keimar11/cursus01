@@ -6,113 +6,53 @@
 /*   By: keitakah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:42:58 by keitakah          #+#    #+#             */
-/*   Updated: 2022/12/16 10:29:08 by cui              ###   ########.fr       */
+/*   Updated: 2022/12/12 15:43:03 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cursus00/libft/libft.h"
 #include <stdio.h>
 
-static void	fetch_c(va_list ap)
-{
-	char	c;
-
-	c = va_arg(ap, char);
-	write (1, c, 1);
-}
-
-static void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
-}
-
-static void	fetch_p(va_list ap)
-{
-	void	*ptr;
-
-	ptr = va_arg(ap, void *);
-	ft_putnbr_fd(ptr, 1);
-}
-
-static void	fetch_di(va_list ap)
-{
-	int	di;
-
-	di = va_arg(ap, int);
-	ft_putnbr_fd(di, 1);
-}
-
-static void	fetch_u(va_list ap)
-{
-	unsigned int	u;
-
-	u = va_arg(ap, unsigned int);
-	ft_putnbr_fd(u, 1);
-}
-
-static void	fetch_x(va_list ap)
-{
-	int	x;
-	char	*hex;
-
-	x = va_arg(ap, int);
-	hex = cvt_hexadecimal(x);
-	ft_putstr_fd(x, 1);
-}
-
-static void	fetch_X(va_list ap)
-{
-	int	X;
-	char	*hex;
-
-	X = va_arg(ap, int);
-	hex = cvt_hexadecimal(X);
-	ft_putstr_fd(X, 1);
-}
-
-static void which_one(va_list ap, char c)
+static void	which_one(char *format, char c)
 {
 	if (c == 'c')
 	{
-		va_arg(ap, char);
+		va_arg(format, char);
 	}
 	if (c == 's')
 	{
-		va_arg(ap, char *);
+		va_arg(format, char *);
 	}
 	if (c == 'p')
 	{
-		va_arg(ap, void *);
+		va_arg(format, void *);
 	}
-	if (c == 'd', c == 'i')
+	if (c == 'i')
 	{
-		va_arg(ap, int);
+		va_arg(format, int);
 	}
 	if (c == 'u')
 	{
-		va_arg(ap, unsigned int);
+		va_arg(format, unsigned int);
 	}
 	if (c == 'x')
 	{
-		va_arg(ap, long int);
+		va_arg(format, long int);
 	}
 	if (c == 'X')
 	{
-		va_arg(ap, long int);
+		va_arg(format, long int);
 	}
 	else
 		ft_putchar_fd(1, c);
 	return ;
 }
 
-	int ft_printf(const char *format, ...)
-	{
-	va_list ap;
-	size_t  i;
-	const char  *val;
+int	ft_printf(const char *format, ...)
+{
+	va_list	ap;
+	size_t	i;
+	const char	*val;
 
 	va_start(ap, format);
 	i = 0;
@@ -120,21 +60,21 @@ static void which_one(va_list ap, char c)
 	{
 		if (format[i] == '%')
 		{
-			which_one(ap, format[i + 1]);
+			which_one(format, format[i + 1]);
 			i++;
 		}
 		else
 		{
-			ft_putchar_fd (1, format[i]);
+			write (1, &format[i], 1);
 		}
 		i++;
 	}
 	va_end(ap);
 	return ;
-	}
+}
 
-	int main()
-	{
+int	main()
+{
 	char c;
 	char *s;
 	int d, i, x, X;
@@ -155,8 +95,7 @@ static void which_one(va_list ap, char c)
 	printf("%i", mynumber);
 	mynumber = "I am 11";
 	printf("\n%d", mynumber);
-	return (0);
-	}
+}
 
 // I am Keito.T, 17 years old born in -17, 2005.
 // My birth date translated hexadecimal: November 18th, 7D5 %
