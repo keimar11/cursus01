@@ -18,7 +18,6 @@ int ft_printf(const char *format, ...)
 {
 	va_list ap;
 	size_t  i;
-	const char  *val;
 
 	va_start(ap, format);
 	i = 0;

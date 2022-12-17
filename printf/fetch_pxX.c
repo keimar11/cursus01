@@ -25,7 +25,6 @@ void	fetch_p(va_list ap)
 void	fetch_x(va_list ap)
 {
 	int	x;
-	char	*hex;
 
 	x = va_arg(ap, int);
 	ft_cvtput_hxd(x, 1);
@@ -34,7 +33,6 @@ void	fetch_x(va_list ap)
 void	fetch_X(va_list ap)
 {
 	int	X;
-	char	*hex;
 
 	X = va_arg(ap, int);
 	ft_cvtput_hxd(X, 0);
