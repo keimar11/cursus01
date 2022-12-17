@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "libftprintf.h"
 
 void fetch_which(va_list ap, char c)
 {
@@ -19,8 +19,8 @@ void fetch_which(va_list ap, char c)
 		fetch_c(ap);
 	else if (c == 's')
 		fetch_s(ap);
-	// else if (c == 'p')
-	// 	fetch_p(ap);
+	else if (c == 'p')
+		fetch_p(ap);
 	else if (c == 'd'|| c == 'i')
 		fetch_di(ap);
 	else if (c == 'u')

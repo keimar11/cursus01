@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "libftprintf.h"
 
 void	fetch_c(va_list ap)
 {

@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 SOURCES = \
 	ft_printf.c, ft_cvtput_hxd.c, fetch_c.c, fetch_s.c, fetch_p.c, \
-	fetch_di.c, fetch_u.c, fetch_x.c, fetch_X.c, fetch_which.c, libft/
+	fetch_di.c, fetch_u.c, fetch_x.c, fetch_X.c, fetch_which.c
 OBJECT = $(SOURCES:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -25,3 +25,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

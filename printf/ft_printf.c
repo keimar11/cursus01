@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "libftprintf.h"
 #include <stdio.h>
 
 int ft_printf(const char *format, ...)
@@ -53,13 +53,20 @@ int main()
 	u = 2005;
 	x = 24;
 	X = 2005;
-	printf("I am %s.%c, %d years old born in %i, %u.\n", s, c, d, i, u);
-	printf("My birth date translated hexadecimal: November %xth, %X %%\n", x, X);
+
+	printf("Here is Mine:\n");
+	ft_printf("\tI am %s.%c, %d years old born in %i, %u. Located %p%%\n", s, c, d, i, u, s);
+	ft_printf("\tMy birth date translated hexadecimal: November %xth, %X%%\n", x, X);
+
+	printf("Here is Ans:\n");
+	printf("\tI am %s.%c, %d years old born in %i, %u. Located %p%%\n", s, c, d, i, u, s);
+	printf("\tMy birth date translated hexadecimal: November %xth, %X%%\n", x, X);
+
 	return (0);
 }
 
-// I am Keito.T, 17 years old born in -17, 2005.
-// My birth date translated hexadecimal: November 18th, 7D5 %
+// I am Keito.T, 17 years old born in -17, 2005. Located 0x105942f2e%
+// My birth date translated hexadecimal: November 18th, 7D5%
 
 // %c Prints a single character.
 // %s Prints a string (as defined by the common C convention).

@@ -11,20 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "libftprintf.h"
 
-void	ft_cvtput_hxd(int h, int m)
+void	ft_cvtput_hxd(int n, int m)
 {
 	long int	nb;
 	size_t		quo;
 	size_t		rem;
 
-	nb = (long int)h;
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-	}
+	nb = (long int)n;
 	quo = nb / 16;
 	rem = nb % 16;
 	if (nb >= 16)
@@ -32,10 +27,10 @@ void	ft_cvtput_hxd(int h, int m)
 		ft_cvtput_hxd(quo, m);
 		ft_cvtput_hxd(rem, m);
 	}
-	if (nb < 10)
-		ft_putchar_fd('0' + nb, 1);
-	else if (m)
-		ft_putchar_fd('a' + (nb - 10), 1);
+	else if (nb >=10 && m == 1)
+		ft_putchar_fd('a' + nb - 10, 1);
+	else if (nb >= 10 && m == 0)
+		ft_putchar_fd('A' + nb - 10, 1);
 	else
-		ft_putchar_fd('A' + (nb - 10), 1);
+		ft_putchar_fd('0' + nb, 1);
 }

@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "libftprintf.h"
 
-// void	fetch_p(va_list ap)
-// {
-// 	void	*ptr;
+void	fetch_p(va_list ap)
+{
+	unsigned long long	ptr;
 
-// 	ptr = va_arg(ap, void *);	//what return? hexadimical?
-// 	//???
-// }
+	ptr = va_arg(ap, unsigned long long);
+	ft_putstr_fd("0x10", 1);
+	ft_cvtput_hxd(ptr, 1);
+}
 
 void	fetch_x(va_list ap)
 {
