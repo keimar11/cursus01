@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "printf.h"
 
-void	ft_cvtput_hxd(int h)
+void	ft_cvtput_hxd(int h, int m)
 {
 	long int	nb;
 	size_t		quo;
@@ -29,11 +29,13 @@ void	ft_cvtput_hxd(int h)
 	rem = nb % 16;
 	if (nb >= 16)
 	{
-		ft_cvtput_hxd(quo);
-		ft_cvtput_hxd(rem);
+		ft_cvtput_hxd(quo, m);
+		ft_cvtput_hxd(rem, m);
 	}
 	if (nb < 10)
 		ft_putchar_fd('0' + nb, 1);
+	else if (m)
+		ft_putchar_fd('a' + (nb - 10), 1);
 	else
 		ft_putchar_fd('A' + (nb - 10), 1);
 }

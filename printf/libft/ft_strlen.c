@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_cs.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:16:26 by cui               #+#    #+#             */
-/*   Updated: 2022/12/16 11:16:39 by cui              ###   ########.fr       */
+/*   Created: 2022/10/17 01:52:56 by marvin            #+#    #+#             */
+/*   Updated: 2022/11/01 16:39:01 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "libft.h"
 
-void	fetch_c(va_list ap)
+size_t	ft_strlen(const char *str)
 {
-	char	c;
+	size_t	i;
 
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-}
-
-void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "printf.h"
 
 void fetch_which(va_list ap, char c)

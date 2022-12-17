@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "printf.h"
 
 // void	fetch_p(va_list ap)
@@ -27,7 +27,7 @@ void	fetch_x(va_list ap)
 	char	*hex;
 
 	x = va_arg(ap, int);
-	ft_cvtput_hxd(x);
+	ft_cvtput_hxd(x, 1);
 }
 
 void	fetch_X(va_list ap)
@@ -36,5 +36,5 @@ void	fetch_X(va_list ap)
 	char	*hex;
 
 	X = va_arg(ap, int);
-	ft_cvtput_hxd(X);
+	ft_cvtput_hxd(X, 0);
 }

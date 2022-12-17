@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_cs.c                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:16:26 by cui               #+#    #+#             */
-/*   Updated: 2022/12/16 11:16:39 by cui              ###   ########.fr       */
+/*   Created: 2022/10/16 00:12:41 by marvin            #+#    #+#             */
+/*   Updated: 2022/11/12 19:27:43 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "libft.h"
 
-void	fetch_c(va_list ap)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	c;
-
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-}
-
-void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

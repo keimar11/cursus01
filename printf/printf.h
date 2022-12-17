@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 
-void	ft_cvtput_hxd(int h);
+void	ft_cvtput_hxd(int h, int m);
 void	fetch_c(va_list ap);
 void	fetch_s(va_list ap);
 void	fetch_p(va_list ap);

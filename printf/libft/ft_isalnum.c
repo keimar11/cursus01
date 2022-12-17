@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_cs.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:16:26 by cui               #+#    #+#             */
-/*   Updated: 2022/12/16 11:16:39 by cui              ###   ########.fr       */
+/*   Created: 2022/10/17 01:47:50 by marvin            #+#    #+#             */
+/*   Updated: 2022/11/03 18:05:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "libft.h"
 
-void	fetch_c(va_list ap)
+int	ft_isalnum(int c)
 {
-	char	c;
-
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-}
-
-void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

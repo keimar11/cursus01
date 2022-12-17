@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_cs.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:16:26 by cui               #+#    #+#             */
-/*   Updated: 2022/12/16 11:16:39 by cui              ###   ########.fr       */
+/*   Created: 2022/10/17 01:47:53 by marvin            #+#    #+#             */
+/*   Updated: 2022/11/13 11:39:56 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "libft.h"
 
-void	fetch_c(va_list ap)
+int	ft_isalpha(int c)
 {
-	char	c;
-
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-}
-
-void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

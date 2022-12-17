@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_cs.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:16:26 by cui               #+#    #+#             */
-/*   Updated: 2022/12/16 11:16:39 by cui              ###   ########.fr       */
+/*   Created: 2022/10/15 23:44:13 by marvin            #+#    #+#             */
+/*   Updated: 2022/11/12 19:23:21 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "libft.h"
 
-void	fetch_c(va_list ap)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	c;
+	size_t	i;
 
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-}
-
-void	fetch_s(va_list ap)
-{
-	char	*str;
-
-	str = va_arg(ap, char *);
-	ft_putstr_fd(str, 1);
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, s + i);
+		i++;
+	}
 }
