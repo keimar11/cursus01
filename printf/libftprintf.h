@@ -28,6 +28,6 @@ int		ft_fetch_X(va_list ap);
 int		ft_fetch_pct();
 int		ft_digit(int n);
 int		ft_digit_hxd(int n);
-void	ft_cvtput_hxd(int n, int m);
+void	ft_cvtput_hxd(long int n, int m);
 
 #endif

@@ -63,7 +63,6 @@ int main()
 	printf("Here is Ans:\n");
 	printf("\tI am %s.%c, %d years old born in %i, %u. Located %p%%\n", s, c, d, i, u, s);
 	printf("\tMy birth date translated hexadecimal: November %xth, %X%%\n", x, X);
-	printf("%p\n", NULL);
 
 	return (0);
 }
