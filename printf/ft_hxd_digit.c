@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "libftprintf.h"
 
-void	ft_cvtput_hxd(long int n, int m)
+void	ft_cvtput_hxd(uintptr_t n, int m)
 {
 	long int	nb;
 	size_t		quo;
