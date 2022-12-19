@@ -6,7 +6,7 @@
 /*   By: keitakah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:42:58 by keitakah          #+#    #+#             */
-/*   Updated: 2022/12/16 10:29:08 by cui              ###   ########.fr       */
+/*   Updated: 2022/12/19 23:12:53 by cui              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int ft_printf(const char *format, ...)
 	return (res);
 }
 
+/*
 int main()
 {
 	char c;
@@ -66,6 +67,7 @@ int main()
 
 	return (0);
 }
+*/
 
 // I am Keito.T, 17 years old born in -17, 2005. Located 0x105942f2e%
 // My birth date translated hexadecimal: November 18th, 7D5%
