@@ -2,9 +2,9 @@ NAME = libftprintf.a
 LIBDIR = libft/
 LIBFT = libft/libft.a
 SRCS = \
-	ft_printf.c ft_cvtput_hxd.c \
-	fetch_cs.c fetch_diu.c fetch_pxX.c \
-	fetch_which.c
+	ft_printf.c ft_hxd_digit.c \
+	ft_fetch_cs.c ft_fetch_diu.c ft_fetch_pxX.c \
+	ft_fetch_which.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -18,11 +18,6 @@ $(NAME): $(OBJS)
 	make clean -C $(LIBDIR)
 	cp $(LIBFT) $@
 	ar -r $@ $?
-
-# make -C (dir): dir内のmakefileをmake
-# ar rcs:
-# 	-r: remove member whose name is tha same as new member
-# cc -c: 
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?

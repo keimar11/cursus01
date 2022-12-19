@@ -18,14 +18,16 @@ int ft_printf(const char *format, ...)
 {
 	va_list ap;
 	size_t  i;
+	size_t	res;
 
 	va_start(ap, format);
 	i = 0;
+	res = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			fetch_which (ap, format[i + 1]);
+			res = ft_fetch_which (ap, format[i + 1]);
 			i++;
 		}
 		else
@@ -33,9 +35,10 @@ int ft_printf(const char *format, ...)
 			ft_putchar_fd(format[i], 1);
 		}
 		i++;
+		res++;
 	}
 	va_end(ap);
-	return (1);
+	return (res);
 }
 
 int main()
@@ -60,6 +63,7 @@ int main()
 	printf("Here is Ans:\n");
 	printf("\tI am %s.%c, %d years old born in %i, %u. Located %p%%\n", s, c, d, i, u, s);
 	printf("\tMy birth date translated hexadecimal: November %xth, %X%%\n", x, X);
+	printf("%p\n", NULL);
 
 	return (0);
 }

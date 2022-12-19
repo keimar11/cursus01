@@ -13,28 +13,31 @@
 #include "libft/libft.h"
 #include "libftprintf.h"
 
-void fetch_which(va_list ap, char c)
+int	ft_fetch_which(va_list ap, char c)
 {
+	int	res;
+
 	if (c == 'c')
-		fetch_c(ap);
+		res = ft_fetch_c(ap);
 	else if (c == 's')
-		fetch_s(ap);
+		res = ft_fetch_s(ap);
 	else if (c == 'p')
-		fetch_p(ap);
+		res = ft_fetch_p(ap);
 	else if (c == 'd'|| c == 'i')
-		fetch_di(ap);
+		res = ft_fetch_di(ap);
 	else if (c == 'u')
-		fetch_u(ap);
+		res = ft_fetch_u(ap);
 	else if (c == 'x')
-		fetch_x(ap);
+		res = ft_fetch_x(ap);
 	else if (c == 'X')
-		fetch_X(ap);
+		res = ft_fetch_X(ap);
+	else if (c == '%')
+		res = ft_fetch_pct();
 	else
 	{
 		ft_putchar_fd('%', 1);
-		if (c == '%')
-			return ;
 		ft_putchar_fd(c, 1);
+		res = 2;
 	}
-	return ;
+	return (res);
 }

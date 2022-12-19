@@ -14,15 +14,20 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
+# include <inttypes.h>
 
-void	ft_cvtput_hxd(int h, int m);
-void	fetch_c(va_list ap);
-void	fetch_s(va_list ap);
-void	fetch_p(va_list ap);
-void	fetch_di(va_list ap);
-void	fetch_u(va_list ap);
-void	fetch_x(va_list ap);
-void	fetch_X(va_list ap);
-void	fetch_which(va_list ap, char c);
+int		ft_printf(const char *format, ...);
+int		ft_fetch_which(va_list ap, char c);
+int		ft_fetch_c(va_list ap);
+int		ft_fetch_s(va_list ap);
+int		ft_fetch_p(va_list ap);
+int		ft_fetch_di(va_list ap);
+int		ft_fetch_u(va_list ap);
+int		ft_fetch_x(va_list ap);
+int		ft_fetch_X(va_list ap);
+int		ft_fetch_pct();
+int		ft_digit(int n);
+int		ft_digit_hxd(int n);
+void	ft_cvtput_hxd(int n, int m);
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fetch_pxX.c                                        :+:      :+:    :+:   */
+/*   ft_fetch_pxX.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,27 +13,39 @@
 #include "libft/libft.h"
 #include "libftprintf.h"
 
-void	fetch_p(va_list ap)
-{
-	unsigned long long	ptr;
+// %p は void * なので、64 bit 環境では
+// uintptr_t 64 bitの整数型を16進数で出力する必要があります。
 
-	ptr = va_arg(ap, unsigned long long);
-	ft_putstr_fd("0x10", 1);
+int	ft_fetch_p(va_list ap)
+{
+	uintptr_t	ptr;
+	int			res;
+
+	ptr = va_arg(ap, uintptr_t);
+	ft_putstr_fd("0x", 1);
 	ft_cvtput_hxd(ptr, 1);
+	res = ft_digit_hxd(ptr);
+	return (res);
 }
 
-void	fetch_x(va_list ap)
+int	ft_fetch_x(va_list ap)
 {
 	int	x;
+	int	res;
 
 	x = va_arg(ap, int);
 	ft_cvtput_hxd(x, 1);
+	res = ft_digit_hxd(x);
+	return (res);
 }
 
-void	fetch_X(va_list ap)
+int	ft_fetch_X(va_list ap)
 {
 	int	X;
+	int	res;
 
 	X = va_arg(ap, int);
 	ft_cvtput_hxd(X, 0);
+	res = ft_digit_hxd(X);
+	return (res);
 }
