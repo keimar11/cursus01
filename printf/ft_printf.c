@@ -41,13 +41,13 @@ int	ft_printf(const char *format, ...)
 	return (res);
 }
 
-// int	main(void)
-// {
-// 	int	or;
-// 	int	ft;
+int	main(void)
+{
+	int	or;
+	int	ft;
 
-// 	or = printf(" %u ", -1);
-// 	printf("orig: %d\n", or);
-// 	ft = ft_printf(" %u ", -1);
-// 	ft_printf("mine: %d", ft);
-// }
+	or = printf(" %p %p ", 0, 0);
+	printf("orig: %d\n", or);
+	ft = ft_printf(" %p %p ", 0, 0);
+	ft_printf("mine: %d", ft);
+}
