@@ -28,10 +28,13 @@ int	ft_fetch_s(va_list ap)
 	int	res;
 
 	str = va_arg(ap, char *);
+	if (str == NULL)
+		str = "(null)";
 	ft_putstr_fd(str, 1);
 	res = ft_strlen(str);
 	return (res);
 }
+// if() こわめ
 
 int	ft_fetch_pct()
 {

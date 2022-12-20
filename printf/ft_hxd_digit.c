@@ -15,43 +15,65 @@
 
 void	ft_cvtput_hxd(uintptr_t n, int m)
 {
-	long int	nb;
 	size_t		quo;
 	size_t		rem;
 
-	nb = (long int)n;
-	quo = nb / 16;
-	rem = nb % 16;
-	if (nb >= 16)
+	quo = n / 16;
+	rem = n % 16;
+	if (n >= 16)
 	{
 		ft_cvtput_hxd(quo, m);
 		ft_cvtput_hxd(rem, m);
 	}
-	else if (nb >=10 && m == 1)
-		ft_putchar_fd('a' + nb - 10, 1);
-	else if (nb >= 10 && m == 0)
-		ft_putchar_fd('A' + nb - 10, 1);
+	else if (n >=10 && m == 1)
+		ft_putchar_fd('a' + n - 10, 1);
+	else if (n >= 10 && m == 0)
+		ft_putchar_fd('A' + n - 10, 1);
 	else
-		ft_putchar_fd('0' + nb, 1);
+		ft_putchar_fd('0' + n, 1);
 }
 
-int	ft_digit_hxd(int n)
+int	ft_digit_hxd(uintptr_t n)
 {
-	long int	nb;
 	int			d;
 
 	if (n == 0)
 		return (1);
-	nb = (long int)n;
 	d = 0;
-	if (n < 0)
+	while (n)
 	{
-		nb *= -1;
+		n /= 16;
 		d++;
 	}
-	while (nb)
+	return (d);
+}
+
+void	ft_putnbr_usgn(unsigned int n)
+{
+	size_t		quo;
+	size_t		rem;
+
+	quo = n / 10;
+	rem = n % 10;
+	if (n >= 10)
 	{
-		nb /= 16;
+		ft_putnbr_usgn(quo);
+		ft_putnbr_usgn(rem);
+	}
+	else
+		ft_putchar_fd('0' + rem, 1);
+}
+
+int	ft_digit_usgn(unsigned int n)
+{
+	int	d;
+
+	if (n == 0)
+		return (1);
+	d = 0;
+	while (n)
+	{
+		n /= 10;
 		d++;
 	}
 	return (d);

@@ -27,19 +27,30 @@ int ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			res = ft_fetch_which (ap, format[i + 1]);
+			res += ft_fetch_which (ap, format[i + 1]);
 			i++;
 		}
 		else
 		{
 			ft_putchar_fd(format[i], 1);
+			res++;
 		}
 		i++;
-		res++;
 	}
 	va_end(ap);
 	return (res);
 }
+
+// int	main(void)
+// {
+// 	int	or;
+// 	int	ft;
+
+// 	or = printf(" %u ", -1);
+// 	printf("orig: %d\n", or);
+// 	ft = ft_printf(" %u ", -1);
+// 	ft_printf("mine: %d", ft);
+// }
 
 /*
 int main()
@@ -68,7 +79,6 @@ int main()
 	return (0);
 }
 */
-
 // I am Keito.T, 17 years old born in -17, 2005. Located 0x105942f2e%
 // My birth date translated hexadecimal: November 18th, 7D5%
 

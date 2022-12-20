@@ -30,7 +30,7 @@ int	ft_fetch_u(va_list ap)
 	int	res;
 
 	u = va_arg(ap, unsigned int);
-	ft_putnbr_fd(u, 1);
-	res = ft_digit(u);
+	ft_putnbr_usgn(u);
+	res = ft_digit_usgn(u);
 	return (res);
 }
