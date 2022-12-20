@@ -6,7 +6,7 @@
 /*   By: keitakah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:42:58 by keitakah          #+#    #+#             */
-/*   Updated: 2022/12/19 23:12:53 by cui              ###   ########.fr       */
+/*   Updated: 2022/12/20 22:11:51 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	ft_printf(const char *format, ...)
 	return (res);
 }
 
+/*
 int	main(void)
 {
 	int	or;
@@ -51,3 +52,4 @@ int	main(void)
 	ft = ft_printf(" %p %p ", 0, 0);
 	ft_printf("mine: %d", ft);
 }
+*/

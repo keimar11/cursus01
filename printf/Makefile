@@ -3,7 +3,7 @@ LIBDIR = libft/
 LIBFT = libft/libft.a
 SRCS = \
 	ft_printf.c ft_put_and_digit.c \
-	ft_fetch_cs.c ft_fetch_diu.c ft_fetch_pxX.c \
+	ft_fetch_cspct.c ft_fetch_diu.c ft_fetch_pxX.c \
 	ft_fetch_which.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
@@ -15,8 +15,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBDIR)
-	make clean -C $(LIBDIR)
 	cp $(LIBFT) $@
+	make fclean -C $(LIBDIR)
 	ar -r $@ $?
 
 %.o: %.c
