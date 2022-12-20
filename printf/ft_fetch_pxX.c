@@ -41,14 +41,14 @@ int	ft_fetch_x(va_list ap)
 	return (res);
 }
 
-int	ft_fetch_X(va_list ap)
+int	ft_fetch_large_x(va_list ap)
 {
-	unsigned int	X;
+	unsigned int	large_x;
 	int				res;
 
-	X = va_arg(ap, unsigned int);
-	ft_putnbr_hxd(X, 0);
-	res = ft_digit_hxd(X);
+	large_x = va_arg(ap, unsigned int);
+	ft_putnbr_hxd(large_x, 0);
+	res = ft_digit_hxd(large_x);
 	return (res);
 }
 

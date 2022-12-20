@@ -30,7 +30,7 @@ int	ft_fetch_which(va_list ap, char c)
 	else if (c == 'x')
 		res = ft_fetch_x(ap);
 	else if (c == 'X')
-		res = ft_fetch_X(ap);
+		res = ft_fetch_large_x(ap);
 	else if (c == '%')
 		res = ft_fetch_pct();
 	else

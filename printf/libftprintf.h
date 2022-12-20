@@ -23,7 +23,7 @@ int		ft_fetch_p(va_list ap);
 int		ft_fetch_di(va_list ap);
 int		ft_fetch_u(va_list ap);
 int		ft_fetch_x(va_list ap);
-int		ft_fetch_X(va_list ap);
+int		ft_fetch_large_x(va_list ap);
 int		ft_fetch_pct(void);
 int		ft_fetch_which(va_list ap, char c);
 int		ft_digit(int n);
