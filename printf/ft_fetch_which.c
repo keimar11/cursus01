@@ -23,7 +23,7 @@ int	ft_fetch_which(va_list ap, char c)
 		res = ft_fetch_s(ap);
 	else if (c == 'p')
 		res = ft_fetch_p(ap);
-	else if (c == 'd'|| c == 'i')
+	else if (c == 'd' || c == 'i')
 		res = ft_fetch_di(ap);
 	else if (c == 'u')
 		res = ft_fetch_u(ap);

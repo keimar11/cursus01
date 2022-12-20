@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "libftprintf.h"
 
-void	ft_cvtput_hxd(uintptr_t n, int m)
+void	ft_putnbr_hxd(uintptr_t n, int m)
 {
 	size_t		quo;
 	size_t		rem;
@@ -22,10 +22,10 @@ void	ft_cvtput_hxd(uintptr_t n, int m)
 	rem = n % 16;
 	if (n >= 16)
 	{
-		ft_cvtput_hxd(quo, m);
-		ft_cvtput_hxd(rem, m);
+		ft_putnbr_hxd(quo, m);
+		ft_putnbr_hxd(rem, m);
 	}
-	else if (n >=10 && m == 1)
+	else if (n >= 10 && m == 1)
 		ft_putchar_fd('a' + n - 10, 1);
 	else if (n >= 10 && m == 0)
 		ft_putchar_fd('A' + n - 10, 1);

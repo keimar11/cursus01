@@ -2,7 +2,7 @@ NAME = libftprintf.a
 LIBDIR = libft/
 LIBFT = libft/libft.a
 SRCS = \
-	ft_printf.c ft_hxd_digit.c \
+	ft_printf.c ft_put_and_digit.c \
 	ft_fetch_cs.c ft_fetch_diu.c ft_fetch_pxX.c \
 	ft_fetch_which.c
 OBJS = $(SRCS:.c=.o)

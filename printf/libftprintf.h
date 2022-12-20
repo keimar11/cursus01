@@ -25,11 +25,11 @@ int		ft_fetch_u(va_list ap);
 int		ft_fetch_x(va_list ap);
 int		ft_fetch_X(va_list ap);
 int		ft_fetch_which(va_list ap, char c);
-int		ft_fetch_pct();
+int		ft_fetch_pct(void);
 int		ft_digit(int n);
 int		ft_digit_usgn(unsigned int n);
 int		ft_digit_hxd(uintptr_t n);
 void	ft_putnbr_usgn(unsigned int n);
-void	ft_cvtput_hxd(uintptr_t n, int m);
+void	ft_putnbr_hxd(uintptr_t n, int m);
 
 #endif

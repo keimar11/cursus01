@@ -27,7 +27,7 @@ int	ft_fetch_di(va_list ap)
 int	ft_fetch_u(va_list ap)
 {
 	unsigned int	u;
-	int	res;
+	int				res;
 
 	u = va_arg(ap, unsigned int);
 	ft_putnbr_usgn(u);

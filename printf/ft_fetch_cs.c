@@ -25,7 +25,7 @@ int	ft_fetch_c(va_list ap)
 int	ft_fetch_s(va_list ap)
 {
 	char	*str;
-	int	res;
+	int		res;
 
 	str = va_arg(ap, char *);
 	if (str == NULL)
@@ -36,7 +36,7 @@ int	ft_fetch_s(va_list ap)
 }
 // if() こわめ
 
-int	ft_fetch_pct()
+int	ft_fetch_pct(void)
 {
 	ft_putchar_fd('%', 1);
 	return (1);

@@ -25,7 +25,7 @@ int	ft_fetch_p(va_list ap)
 	ptr = va_arg(ap, uintptr_t);
 	ft_putstr_fd("0x", 1);
 	res = 2;
-	ft_cvtput_hxd(ptr, 1);
+	ft_putnbr_hxd(ptr, 1);
 	res += ft_digit_hxd(ptr);
 	return (res);
 }
@@ -33,10 +33,10 @@ int	ft_fetch_p(va_list ap)
 int	ft_fetch_x(va_list ap)
 {
 	unsigned int	x;
-	int	res;
+	int				res;
 
 	x = va_arg(ap, unsigned int);
-	ft_cvtput_hxd(x, 1);
+	ft_putnbr_hxd(x, 1);
 	res = ft_digit_hxd(x);
 	return (res);
 }
@@ -44,10 +44,10 @@ int	ft_fetch_x(va_list ap)
 int	ft_fetch_X(va_list ap)
 {
 	unsigned int	X;
-	int	res;
+	int				res;
 
 	X = va_arg(ap, unsigned int);
-	ft_cvtput_hxd(X, 0);
+	ft_putnbr_hxd(X, 0);
 	res = ft_digit_hxd(X);
 	return (res);
 }
