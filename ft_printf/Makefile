@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cui <marvin@42.fr>                         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/22 11:06:10 by cui               #+#    #+#              #
+#    Updated: 2022/12/22 11:06:17 by cui              ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 LIBDIR = libft/
 LIBFT = libft/libft.a
@@ -9,7 +21,6 @@ OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# ------------------------------
 
 all: $(NAME)
 
@@ -17,10 +28,11 @@ $(NAME): $(OBJS)
 	make -C $(LIBDIR)
 	cp $(LIBFT) $@
 	make fclean -C $(LIBDIR)
+#	$(CC) -c $(CFLAGS) $?
 	ar -r $@ $?
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
+# %.o: %.c
+# 	$(CC) -c $(CFLAGS) $?
 
 clean:
 	rm -f $(OBJS)
