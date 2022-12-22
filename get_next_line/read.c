@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include <stdio.h>
 
 #define LOG_FILE_PATH "./test"
 
@@ -38,7 +39,7 @@ static ssize_t	my_read (int fd, char *buf, size_t size)
 int	main (void)
 {
 	int		fd, size;
-	char	buf[128];
+	char	buf[900];
 
 	fd = open (LOG_FILE_PATH, O_RDONLY);
 
@@ -52,8 +53,32 @@ int	main (void)
 		return (-1);
 	}
 
-	/* 処理を書く */
+	printf("buf: %s\n", buf);
 
 	close (fd);
 	return (0);
 }
+
+/*
+たぶんread(fd, *buf, count)は
+	fdに指定されたファイルの
+	先頭からcountバイト数分を
+	bufポインタにcopyする感じ
+	=> read
+*/
+
+
+/*
+#BUFFER_SIZE
+	42
+#test
+	I am Keito, tintin.
+	Bravouus>>
+	Minneliumm pardeaa
+	Fuck PROGRAMMIG!
+#output
+	I am Keito, tintin.
+	Bravouus>>
+	Minneliumm
+//(42 charactor)
+*/

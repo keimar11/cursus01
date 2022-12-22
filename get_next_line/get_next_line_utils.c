@@ -10,4 +10,62 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*join;
+	size_t	i;
+	size_t	j;
+
+	if (!s1 || !s2)
+		return (NULL);
+	join = (char *)malloc(sizeof(char) * (ft_strlen (s1) + ft_strlen (s2) + 1));
+	if (!join)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[j])
+		join[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		join[i++] = s2[j++];
+	join[i] = '\0';
+	return (join);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	sl;
+
+	sl = ft_strlen(src);
+	if (!dst || size == 0)
+		return (sl);
+	while (size-- > 1 && *src != '\0')
+		*dst++ = *src++;
+	*dst = '\0';
+	return (sl);
+}
