@@ -25,8 +25,7 @@ char *get_next_line(int fd)
 	if (!save)
 		return (NULL);
 	save[0] = '\0';
-	end_of_size = 1;
-	while (!ft_strchar(save, '\n') && !<EOF>)
+	while (!ft_strchar(save, '\n') && !ft_strchar(save, EOF))
 	{
 		read_passer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!read_passer)
@@ -36,12 +35,13 @@ char *get_next_line(int fd)
 		save = ft_strjoin(save, read_passer);
 		free(read_passer);
 	}
+	end_of_size = 1;
 	if (ft_strchar(save, '\n'))
 		end_of_size = 2;
 	get_size = 0;
 	while (save[get_size] != '\n' && save[get_size] != '\0')
 		get_size++;
-	get_line = (char *)malloc(sizeof(char) * (get_size + 2));
+	get_line = (char *)malloc(sizeof(char) * (get_size + end_of_size));
 	if (!get_line)
 		return (NULL);
 	ft_strlcpy(get_line, save, get_size + end_size);
@@ -50,11 +50,3 @@ char *get_next_line(int fd)
 }
 
 // static char *save => NULL initialization
-
-int	main(void)
-{
-	char	*str;
-	
-	str = get_next_line();
-	printf("%s", str);
-}

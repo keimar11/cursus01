@@ -5,7 +5,7 @@
 #include <errno.h>
 #include <stdio.h>
 
-#define LOG_FILE_PATH "./test"
+#define LOG_FILE_PATH "./test.log"
 
 static ssize_t	my_read (int fd, char *buf, size_t size)
 {
@@ -52,8 +52,7 @@ int	main (void)
 		close (fd);
 		return (-1);
 	}
-
-	printf("buf: %s\n", buf);
+	
 
 	close (fd);
 	return (0);
