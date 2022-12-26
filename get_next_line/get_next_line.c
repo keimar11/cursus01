@@ -12,20 +12,14 @@
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+char	*read_update_save(char *save, int fd)
 {
-	static char	*save;
-	char		*read_passer;
-	size_t		read_size;
-	size_t		end_of_size;
-	char		*get_line;
-	size_t		get_size;
+	static size_t	read_size;
+	char	*read_passer;
 
-	save = (char *)malloc(sizeof(char));
-	if (!save)
-		return (NULL);
-	save[0] = '\0';
-	while (!ft_strchar(save, '\n') && !ft_strchar(save, EOF))
+	// printf("Here is in read()\n");
+	read_size = BUFFER_SIZE;
+	while (!ft_strchr(save, '\n') && read_size >= BUFFER_SIZE)
 	{
 		read_passer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!read_passer)
@@ -35,18 +29,50 @@ char *get_next_line(int fd)
 		save = ft_strjoin(save, read_passer);
 		free(read_passer);
 	}
-	end_of_size = 1;
-	if (ft_strchar(save, '\n'))
-		end_of_size = 2;
-	get_size = 0;
-	while (save[get_size] != '\n' && save[get_size] != '\0')
-		get_size++;
-	get_line = (char *)malloc(sizeof(char) * (get_size + end_of_size));
-	if (!get_line)
+	return (save);
+}
+// saveが1コ以上\nを持っている
+
+
+char	*get_next_line(int fd)
+{
+	static char	*save;
+	size_t	end_size;
+	size_t	get_next_size;
+	char	*get_next_line;
+
+	if (save == NULL)
+	{
+		save = (char *)malloc(sizeof(char));
+		if (!save)
+			return (NULL);
+		save[0] = '\0';
+	}
+	save = read_update_save(save, fd);
+	// printf("read_update_save: %s\n", save);
+	if (!ft_strchr(save, '\n'))
+		end_size = 1;
+	else
+		end_size = 2;
+	get_next_size = 0;
+	while (save[get_next_size] != '\n' && save[get_next_size] != '\0')
+		get_next_size++;
+	get_next_line = (char *)malloc(sizeof(char) * (get_next_size + end_size));
+	if (!get_next_line)
 		return (NULL);
-	ft_strlcpy(get_line, save, get_size + end_size);
-	free(save);
-	return (get_line);
+	ft_strlcpy(get_next_line, save, get_next_size + end_size);
+	if (!ft_strchr(save, '\n'))
+	{
+		// printf("EOF\n");
+		free(save);
+	}
+	save += get_next_size + end_size - 1;
+	// printf("after_update_save: %s\n", save);
+	return (get_next_line);
 }
 
-// static char *save => NULL initialization
+// read(fd, buf, BUFFER_SIZE) : CONST
+// static initialization : never initialize. 0 or '\0' or NULL initialized at the same time as declaration.
+// read to EOF : read_size < BUFFER_SIZE
+// gnl has EOF : !ft_strchr(save, '\n')
+// after get nl, save has to rm str of nl because we wanna output from next to last nl.

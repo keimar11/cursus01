@@ -14,11 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*s == (unsigned char)c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)s);
-		s++;
+		i++;
 	}
 	if (c == 0)
 		return ((char *)s);
@@ -60,12 +63,22 @@ size_t	ft_strlen(const char *str)
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	sl;
+	size_t	i;
 
 	sl = ft_strlen(src);
 	if (!dst || size == 0)
 		return (sl);
+	i = 0;
 	while (size-- > 1 && *src != '\0')
-		*dst++ = *src++;
-	*dst = '\0';
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
 	return (sl);
 }
+
+// int main(void)
+// {
+// 	ft_strchr(NULL, 'a');
+// }
