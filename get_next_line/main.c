@@ -22,3 +22,13 @@ int	main (void)
 	close (fd);
 	return (0);
 }
+
+// int main(void)
+// {
+// 	char str[100];
+// 	int fd;
+
+// 	fd = 0;
+// 	read(fd, str,10);
+// 	printf("%s", str);
+// }

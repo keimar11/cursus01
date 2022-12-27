@@ -16,7 +16,15 @@ char	*read_update_save(char *save, int fd)
 {
 	static size_t	read_size;
 	char			*read_passer;
+	char			*tmp;
 
+	if (save == NULL)
+	{
+		save = malloc(1);
+		if (!save)
+			return (NULL);
+		save[0] = '\0';
+	}
 	read_size = BUFFER_SIZE;
 	while (!ft_strchr(save, '\n') && read_size >= BUFFER_SIZE)
 	{
@@ -25,10 +33,11 @@ char	*read_update_save(char *save, int fd)
 			return (NULL);
 		read_size = read(fd, read_passer, BUFFER_SIZE);
 		read_passer[read_size] = '\0';
-		save = ft_strjoin(save, read_passer);
+		tmp = ft_strjoin(save, read_passer);
+		free(save);
 		free(read_passer);
 	}
-	return (save);
+	return (tmp);
 }
 // saveが1コ以上\nを持っている
 
@@ -40,13 +49,6 @@ char	*get_next_line(int fd)
 	size_t	get_next_size;
 	char	*get_next_line;
 
-	if (save == NULL)
-	{
-		save = malloc(1);
-		if (!save)
-			return (NULL);
-		save[0] = '\0';
-	}
 	save = read_update_save(save, fd);
 	if (ft_strchr(save, '\n'))
 		end_size = 2;

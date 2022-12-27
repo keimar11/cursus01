@@ -1,12 +1,71 @@
-a
-b
-c
-d
-e
-f
-g
-h
-j
-k
+BUFFER_SIZE = 1
+0
+1
+1
+2
+1
+2
+1
+2
+5
+5
+5
+9
+9
+1
+1
+9
 
-static char *save: How can I initialize static variable only one time?
+BUFFER_SIZE = 42
+0
+1
+1
+2
+1
+2
+1
+2
+5
+5
+5
+9
+9
+1
+1
+9
+
+BUFFER_SIZE = 10000000
+0
+1
+1
+2
+1
+2
+1
+2
+5
+5
+5
+9
+9
+1
+1
+9
+
+In any BUFFER_SIZE;
+files/empty: 1.KO 2.KO LEAKS.KO
+files/nl: 1.OK 2.KO LEAKS.KO
+files/41_no_nl: 1.OK 2.KO LEAKS.KO
+files/41_with_nl: 1.OK 2.OK 3.KO LEAKS.KO
+files/42_no_nl: 1.OK 2.KO LEAKS.KO
+files/42_with_nl: 1.OK 2.OK 3.KO LEAKS.KO
+files/43_no_nl: 1.OK 2.KO LEAKS.KO
+files/43_with_nl: 1.OK 2.OK 3.KO LEAKS.KO
+files/multiple_nlx5: 1.OK 2.OK 3.OK 4.OK 5.OK 6.KO
+files/multiple_line_no_nl: 1.OK 2.OK 3.OK 4.OK 5.OK 6.KO LEAKS.KO
+files/multiple_line_with_nl: 1.OK 2.OK 3.OK 4.OK 5.OK 6.KO LEAKS.KO
+files/alternate_line_nl_no_nl: 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.KO LEAKS.KO
+files/alternate_line_nl_with_nl: 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.KO LEAKS.KO
+files/big_line_no_nl: 1.OK 2.KO LEAKS.KO
+files/big_line_with_nl: 1.OK 2.KO LEAKS.KO
+stdin: 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.KO LEAKS.KO
