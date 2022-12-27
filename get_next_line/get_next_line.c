@@ -34,9 +34,9 @@ char	*read_update_save(char *save, int fd)
 		read_size = read(fd, read_passer, BUFFER_SIZE);
 		read_passer[read_size] = '\0';
 		tmp = ft_strjoin(save, read_passer);
-		free(save);
 		free(read_passer);
 	}
+	// free(save);
 	return (tmp);
 }
 // saveが1コ以上\nを持っている
