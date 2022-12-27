@@ -15,9 +15,8 @@
 char	*read_update_save(char *save, int fd)
 {
 	static size_t	read_size;
-	char	*read_passer;
+	char			*read_passer;
 
-	// printf("Here is in read()\n");
 	read_size = BUFFER_SIZE;
 	while (!ft_strchr(save, '\n') && read_size >= BUFFER_SIZE)
 	{
@@ -43,17 +42,16 @@ char	*get_next_line(int fd)
 
 	if (save == NULL)
 	{
-		save = (char *)malloc(sizeof(char));
+		save = malloc(1);
 		if (!save)
 			return (NULL);
 		save[0] = '\0';
 	}
 	save = read_update_save(save, fd);
-	// printf("read_update_save: %s\n", save);
-	if (!ft_strchr(save, '\n'))
-		end_size = 1;
-	else
+	if (ft_strchr(save, '\n'))
 		end_size = 2;
+	else
+		end_size = 1;
 	get_next_size = 0;
 	while (save[get_next_size] != '\n' && save[get_next_size] != '\0')
 		get_next_size++;
@@ -61,13 +59,7 @@ char	*get_next_line(int fd)
 	if (!get_next_line)
 		return (NULL);
 	ft_strlcpy(get_next_line, save, get_next_size + end_size);
-	if (!ft_strchr(save, '\n'))
-	{
-		// printf("EOF\n");
-		free(save);
-	}
 	save += get_next_size + end_size - 1;
-	// printf("after_update_save: %s\n", save);
 	return (get_next_line);
 }
 
@@ -76,3 +68,10 @@ char	*get_next_line(int fd)
 // read to EOF : read_size < BUFFER_SIZE
 // gnl has EOF : !ft_strchr(save, '\n')
 // after get nl, save has to rm str of nl because we wanna output from next to last nl.
+
+/*
+memory must be freed
+	save:
+	get_next_line:
+	read_passer: OK
+*/

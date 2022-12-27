@@ -17,7 +17,7 @@ int	main (void)
 	while(ft_strchr(buf, '\n'))
 	{
 		buf = get_next_line(fd);
-		printf("main: %s\n", buf);
+		printf("main: %s", buf);
 	}
 	close (fd);
 	return (0);
