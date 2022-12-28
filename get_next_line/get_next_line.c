@@ -6,7 +6,7 @@
 /*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:35:02 by cui               #+#    #+#             */
-/*   Updated: 2022/12/21 12:35:10 by cui              ###   ########.fr       */
+/*   Updated: 2022/12/28 11:24:39 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*read_update_save(char *save, int fd)
 {
 	static size_t	read_size;
 	char			*read_passer;
-	char			*tmp;
 
 	if (save == NULL)
 	{
@@ -33,11 +32,10 @@ char	*read_update_save(char *save, int fd)
 			return (NULL);
 		read_size = read(fd, read_passer, BUFFER_SIZE);
 		read_passer[read_size] = '\0';
-		tmp = ft_strjoin(save, read_passer);
+		save = ft_strjoin(save, read_passer);
 		free(read_passer);
 	}
-	// free(save);
-	return (tmp);
+	return (save);
 }
 // saveが1コ以上\nを持っている
 
