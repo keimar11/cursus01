@@ -40,7 +40,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	join = (char *)malloc(sizeof(char) * (ft_strlen (s1) + ft_strlen (s2) + 1));
 	if (!join)
+	{
+		free((char *)s1);
+		free((char *)s2);
 		return (NULL);
+	}
 	i = 0;
 	j = 0;
 	while (s1[j])
