@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "get_next_line.h"
-#define LOG_FILE_PATH "./test_null.log"
+#define LOG_FILE_PATH "test/test_41.log"
 
 int	main (void)
 {
@@ -14,10 +14,13 @@ int	main (void)
 	fd = open (LOG_FILE_PATH, O_RDONLY);
 
 	buf = "\n";
-	while(ft_strchr(buf, '\n'))
+	while(ft_strchr(buf, '\n') && buf != NULL)
 	{
 		buf = get_next_line(fd);
-		printf("main: %s", buf);
+		if (buf == NULL)
+			printf("NULL\n");
+		else
+			printf("main: %s", buf);
 		// free(buf);
 	}
 	close (fd);

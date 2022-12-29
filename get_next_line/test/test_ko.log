@@ -1,0 +1,20 @@
+[ANY BUFFER_SIZE]
+
+files/empty: 1.KO 2.KO LEAKS.KO [0x7f88cfd001e0 : 1]
+files/nl: 2.KO LEAKS.KO [0x7f88cfe00000 : 1]
+files/41_no_nl: 2.KO LEAKS.KO [0x7f88cff00020 : 1]
+files/41_with_nl: 3.KO LEAKS.KO [0x7f88cfc023f0 : 1]
+files/42_no_nl: 2.KO LEAKS.KO [0x7f88cfd00200 : 1]
+files/42_with_nl: 3.KO LEAKS.KO [0x7f88cfe00170 : 1]
+files/43_no_nl: 2.KO LEAKS.KO [0x7f88cff001a0 : 1]
+files/43_with_nl: 3.KO LEAKS.KO [0x7f88cfc00640 : 1]
+files/multiple_nlx5: 6.KO LEAKS.KO [0x7f88d1800020 : 1]
+files/multiple_line_no_nl: 6.KO LEAKS.KO [0x7f88cfd00190 : 1]
+files/multiple_line_with_nl: 6.KO LEAKS.KO [0x7f88cfd00000 : 1]
+files/alternate_line_nl_no_nl: 10.KO LEAKS.KO [0x7f88cfc000c0 : 1]
+files/alternate_line_nl_with_nl: 10.KO LEAKS.KO [0x7f88cfe00000 : 1]
+files/big_line_no_nl: 2.KO LEAKS.KO [0x7f88cfc00640 : 1]
+files/big_line_with_nl: 2.KO LEAKS.KO [0x7f88d1000020 : 1]
+stdin: 10.KO LEAKS.KO [0x7f88cfc00650 : 1]
+
+gnl(sth, NULL);
