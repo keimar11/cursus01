@@ -54,16 +54,16 @@ size_t	get_next_size(char *save)
 
 char	*get_output_line(char *save, size_t next_size)
 {
-	char			*get_output_line;
+	char	*output_line;
 
-	get_output_line = (char *)malloc((next_size + 1));
-	if (!get_output_line)
+	output_line = (char *)malloc((next_size + 1));
+	if (!output_line)
 	{
 		free(save);
 		return (NULL);
 	}
-	ft_strlcpy(get_output_line, save, next_size + 1);
-	return (get_output_line);
+	ft_strlcpy(output_line, save, next_size + 1);
+	return (output_line);
 }
 
 char	*get_update_save(char *save, size_t next_size)
