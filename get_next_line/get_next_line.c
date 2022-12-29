@@ -6,7 +6,7 @@
 /*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:35:02 by cui               #+#    #+#             */
-/*   Updated: 2022/12/29 22:19:26 by keitakah         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:29:15 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*read_update_save(char *save, int fd)
 {
-	size_t	read_size;
-	char	*read_passer;
+	long long int	read_size;
+	char			*read_passer;
 
 	read_size = BUFFER_SIZE;
 	while (!ft_strchr(save, '\n') && read_size == BUFFER_SIZE)
