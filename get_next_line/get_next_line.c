@@ -6,7 +6,7 @@
 /*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:35:02 by cui               #+#    #+#             */
-/*   Updated: 2022/12/29 18:48:45 by keitakah         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:19:26 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*read_update_save(char *save, int fd)
 			return (NULL);
 		}
 		read_size = read(fd, read_passer, BUFFER_SIZE);
+		if (read_size == -1)
+			return (NULL);
 		read_passer[read_size] = '\0';
 		save = ft_strjoin(save, read_passer);
 		if (save == NULL)
