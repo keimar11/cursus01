@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "get_next_line.h"
-#define LOG_FILE_PATH "test/test_41.log"
+#define LOG_FILE_PATH ""
 
 int	main (void)
 {

@@ -22,10 +22,7 @@ char	*read_update_save(char *save, int fd)
 	{
 		read_passer = (char *)malloc((BUFFER_SIZE + 1));
 		if (!read_passer)
-		{
-			free(save);
-			return (NULL);
-		}
+			return (free_save(save));
 		read_size = read(fd, read_passer, BUFFER_SIZE);
 		if (read_size == -1)
 			return (NULL);
@@ -34,10 +31,7 @@ char	*read_update_save(char *save, int fd)
 		if (save == NULL)
 			return (NULL);
 		if (save[0] == '\0')
-		{
-			free(save);
-			return (NULL);
-		}
+			return (free_save(save));
 	}
 	return (save);
 }
@@ -60,10 +54,7 @@ char	*get_output_line(char *save, size_t next_size)
 
 	output_line = (char *)malloc((next_size + 1));
 	if (!output_line)
-	{
-		free(save);
-		return (NULL);
-	}
+		return (free_save(save));
 	ft_strlcpy(output_line, save, next_size + 1);
 	return (output_line);
 }
@@ -75,10 +66,7 @@ char	*get_update_save(char *save, size_t next_size)
 
 	update_save = (char *)malloc(ft_strlen(save) - next_size + 1);
 	if (!update_save)
-	{
-		free(save);
-		return (NULL);
-	}
+		return (free_save(save));
 	i = 0;
 	while (save[i + next_size])
 	{
