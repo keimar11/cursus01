@@ -21,7 +21,6 @@ int	main (void)
 			printf("NULL\n");
 		else
 			printf("main: %s", buf);
-		// free(buf);
 	}
 	close (fd);
 	return (0);
