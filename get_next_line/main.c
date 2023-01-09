@@ -17,10 +17,7 @@ int	main (void)
 	while(ft_strchr(buf, '\n') && buf != NULL)
 	{
 		buf = get_next_line(fd);
-		if (buf == NULL)
-			printf("NULL\n");
-		else
-			printf("main: %s", buf);
+		printf("main: %s", buf);
 	}
 	close (fd);
 	return (0);
