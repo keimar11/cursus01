@@ -25,7 +25,10 @@ char	*read_update_save(char *save, int fd)
 			return (free_save(save));
 		read_size = read(fd, read_passer, BUFFER_SIZE);
 		if (read_size == -1)
-			return (NULL);
+		{
+			free(read_passer);
+			return (free_save(save));
+		}
 		read_passer[read_size] = '\0';
 		save = ft_strjoin(save, read_passer);
 		if (save == NULL)
@@ -84,6 +87,8 @@ char	*get_next_line(int fd)
 	size_t		next_size;
 	char		*output_line;
 
+	if (fd < 0)
+		return (NULL);
 	if (save == NULL)
 	{
 		save = malloc(1);
