@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: keitakah <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/09 12:07:25 by keitakah          #+#    #+#             */
+/*   Updated: 2023/01/09 12:07:27 by keitakah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -6,15 +18,14 @@
 #include "get_next_line.h"
 #define LOG_FILE_PATH "test/test_empty.log"
 
-int	main (void)
+int	main(void)
 {
 	int		fd;
 	char	*buf;
 
 	fd = open (LOG_FILE_PATH, O_RDONLY);
-
 	buf = "\n";
-	while(ft_strchr(buf, '\n') && buf != NULL)
+	while (ft_strchr(buf, '\n') && buf != NULL)
 	{
 		buf = get_next_line(fd);
 		printf("main: %s", buf);
