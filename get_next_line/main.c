@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "get_next_line.h"
-#define LOG_FILE_PATH "test/test_empty.log"
+#define LOG_FILE_PATH "test/test_ko.log"
 
 int	main(void)
 {
@@ -28,7 +28,7 @@ int	main(void)
 	while (ft_strchr(buf, '\n') && buf != NULL)
 	{
 		buf = get_next_line(fd);
-		printf("main: %s", buf);
+		printf("%s", buf);
 	}
 	close (fd);
 	return (0);

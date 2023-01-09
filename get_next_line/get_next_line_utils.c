@@ -12,9 +12,9 @@
 
 #include "get_next_line.h"
 
-char	*free_save(char *save)
+char	*free_string(char *string)
 {
-	free(save);
+	free(string);
 	return (NULL);
 }
 

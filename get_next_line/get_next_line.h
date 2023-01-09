@@ -23,7 +23,7 @@ char	*read_update_save(char *save, int fd);
 size_t	get_next_size(char *save);
 char	*get_output_line(char *save, size_t next_size);
 char	*get_update_save(char *save, size_t next_size);
-char	*free_save(char *save);
+char	*free_string(char *string);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
