@@ -12,12 +12,13 @@ int	main (void)
 	char	*buf;
 
 	fd = open (LOG_FILE_PATH, O_RDONLY);
-
+	fd = -1;
 	buf = "\n";
 	while(ft_strchr(buf, '\n') && buf != NULL)
 	{
 		buf = get_next_line(fd);
 		printf("main: %s", buf);
+		system("leaks a.out");
 	}
 	close (fd);
 	return (0);
