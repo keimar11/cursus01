@@ -1,20 +1,11 @@
-[ANY BUFFER_SIZE]
+[BUFFER_SIZE = 1]:
+Invalid fd: 1.OK 2.OK 3.OK LEAKS.KO [0x7ff714d001e0 : 1] [0x7ff714d00200 : 2] [0x7ff714d001f0 : 1] [0x7ff714d00270 : 2] [0x7ff714d00280 : 1] [0x7ff714d00210 : 2]
+[BUFFER_SIZE = 42]:
+Invalid fd: 1.OK 2.OK 3.OK LEAKS.KO [0x7fe7cf5001e0 : 1] [0x7fe7cf500200 : 43] [0x7fe7cf5001f0 : 1] [0x7fe7cf500290 : 43] [0x7fe7cf5002c0 : 1] [0x7fe7cf500350 : 43]
+[BUFFER_SIZE = 10000000]:
+Invalid fd: 1.OK 2.OK 3.OK LEAKS.KO [0x7f82875001e0 : 1] [0x1003b0000 : 10000001] [0x7f82875001f0 : 1] [0x100d3b000 : 10000001] [0x7f8287500260 : 1] [0x1016c5000 : 10000001]
 
-files/empty: 1.KO 2.KO LEAKS.KO [0x7f88cfd001e0 : 1]
-files/nl: 2.KO LEAKS.KO [0x7f88cfe00000 : 1]
-files/41_no_nl: 2.KO LEAKS.KO [0x7f88cff00020 : 1]
-files/41_with_nl: 3.KO LEAKS.KO [0x7f88cfc023f0 : 1]
-files/42_no_nl: 2.KO LEAKS.KO [0x7f88cfd00200 : 1]
-files/42_with_nl: 3.KO LEAKS.KO [0x7f88cfe00170 : 1]
-files/43_no_nl: 2.KO LEAKS.KO [0x7f88cff001a0 : 1]
-files/43_with_nl: 3.KO LEAKS.KO [0x7f88cfc00640 : 1]
-files/multiple_nlx5: 6.KO LEAKS.KO [0x7f88d1800020 : 1]
-files/multiple_line_no_nl: 6.KO LEAKS.KO [0x7f88cfd00190 : 1]
-files/multiple_line_with_nl: 6.KO LEAKS.KO [0x7f88cfd00000 : 1]
-files/alternate_line_nl_no_nl: 10.KO LEAKS.KO [0x7f88cfc000c0 : 1]
-files/alternate_line_nl_with_nl: 10.KO LEAKS.KO [0x7f88cfe00000 : 1]
-files/big_line_no_nl: 2.KO LEAKS.KO [0x7f88cfc00640 : 1]
-files/big_line_with_nl: 2.KO LEAKS.KO [0x7f88d1000020 : 1]
-stdin: 10.KO LEAKS.KO [0x7f88cfc00650 : 1]
-
-gnl(sth, NULL);
+	fd = open("files/empty", O_RDWR);
+	TEST(/* 1 */ gnl(1000,  NULL);
+		 /* 2 */ gnl(-1,  NULL); close(fd);
+		 /* 3 */ gnl(fd,  NULL);) cout << ENDL;
