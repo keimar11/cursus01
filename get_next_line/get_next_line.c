@@ -87,7 +87,7 @@ char	*get_next_line(int fd)
 	size_t		next_size;
 	char		*output_line;
 
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (save == NULL)
 	{
