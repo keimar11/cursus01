@@ -18,6 +18,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 11
+#endif
+
 char	*get_next_line(int fd);
 char	*read_update_save(char *save, int fd);
 size_t	get_next_size(char *save);

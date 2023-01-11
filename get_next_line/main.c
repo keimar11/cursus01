@@ -1,24 +1,19 @@
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "get_next_line.h"
-#define LOG_FILE_PATH "test/test_empty.log"
 
-int	main (void)
+int	main (int argc, char **argv)
 {
 	int		fd;
 	char	*buf;
 
-	fd = open (LOG_FILE_PATH, O_RDONLY);
-	fd = -1;
-	buf = "\n";
-	while(ft_strchr(buf, '\n') && buf != NULL)
+	(void)argc;
+	fd = open (argv[1], O_RDONLY);
+	while(1)
 	{
 		buf = get_next_line(fd);
-		printf("main: %s", buf);
-		system("leaks a.out");
+		printf("%s", buf);
+		if (buf == NULL)
+			break;
 	}
 	close (fd);
 	return (0);

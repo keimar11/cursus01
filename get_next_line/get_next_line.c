@@ -103,9 +103,6 @@ char	*get_next_line(int fd)
 	output_line = get_output_line(save, next_size);
 	save = get_update_save(save, next_size);
 	if (save == NULL)
-	{
-		free(output_line);
 		return (NULL);
-	}
 	return (output_line);
 }
