@@ -6,7 +6,7 @@
 /*   By: cui <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:35:25 by cui               #+#    #+#             */
-/*   Updated: 2022/12/21 12:35:27 by cui              ###   ########.fr       */
+/*   Updated: 2023/01/14 15:21:34 by keitakah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 11
-#endif
+# ifdef BUFFER_SIZE
+#  define BUFFER_SIZE 11
+# endif
 
 char	*get_next_line(int fd);
 char	*read_update_save(char *save, int fd);
