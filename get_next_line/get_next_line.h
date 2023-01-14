@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-# ifdef BUFFER_SIZE
+# ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 11
 # endif
 
