@@ -59,12 +59,38 @@ crontab -u root -e
 ###explain
 #Project overview
 #	How a virtual machine works
+		仮想化技術を用いてコンピュータ内にもうひとつのコンピュータを再現する技術。
+		物理マシンにOSをインストールして、仮想ソフトウェアを使って設定することで利用できる。
 #	Their choice of operating system
-#	The basic differences between CentOS and Debian
+#	The basic differences between Rocky and Debian
+		Both
+			Linux distribution
+			For free
+		Rocky
+			For company, commerce
+			RHELとの完全な互換性
+			CentOSの後継
+		Debian
+			For indivisual
+			安定している
+			移植性が高い、ベースとなってる（ラズベリーパイ）
 #	The purpose of virtual machines
+		ウイルスデータへのアクセスやOSのテストなど、リスクの伴うタスクを実行する。
+		1台のホストで複数の仮想マシンを同時稼働させることができる。
+		ハードウェアを省くことができる。コスト削減。
+		物理マシンより低速、非効率。重くなる。
+		複数の仮想マシンを実行すると、パフォーマンスが不安定になる。
 #	Difference between aptitude and apt
+		Debian package manage -> APT(Advanced Package Tool)
+		command apt/ apt-get/ aptitude
+		original apt-get including mistake -> apt
+		aptitude == outside project
+		apt is recommended
 #	What APPArmor is
-#
+		Mandatory Access Control(MAC) 強制アクセス制御
+		ユーザーやプログラムに対してより厳しい制限（強制制御）をできる。
+		不正アクセスを防ぐ重要なセキュリティ対策。
+		$sudo aa_status
 #Simple setup
 #User/Password
 #	The advantages and disadvantages of this password policy
@@ -76,9 +102,16 @@ crontab -u root -e
 			a lot update for users who do not login usually
 #Hostname and partitions
 #	What is LVM
+		Logical Volume Management.
+		A system manages logical volumes, or filesystems, that is much more 
+		advanced and flexible than the traditional method of partitioning.
+		複数のハードディスクやパーティションにまたがった記憶領域をまとめて、
+		単一の論理ボリューム（LV）として扱うことのできるディスク管理機能。
 #	How LVM works
+
 #Sudo
 #	The value and operation of sudo
+		ホストと同じ権限を持つ人を制限できる。複数人でOSを使いやすい。
 #UFW
 #	What is UFW
 		tool to select access whether it can connect or not
